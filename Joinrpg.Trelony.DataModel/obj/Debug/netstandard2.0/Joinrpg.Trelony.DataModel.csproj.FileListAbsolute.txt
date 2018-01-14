@@ -1,0 +1,9 @@
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\bin\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.deps.json
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\bin\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.dll
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\bin\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.pdb
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.csprojResolveAssemblyReference.cache
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.csproj.CoreCompileInputs.cache
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.AssemblyInfoInputs.cache
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.AssemblyInfo.cs
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.dll
+C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Trelony.DataModel\obj\Debug\netstandard2.0\Joinrpg.Trelony.DataModel.pdb
