@@ -5,7 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180208183450_Initial.cs" />
+    <Compile Remove="Migrations\20180208183559_Initial.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Joinrpg.Trelony.DataModel\Joinrpg.Trelony.DataModel.csproj" />
   </ItemGroup>
 
 </Project>

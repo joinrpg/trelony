@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using JetBrains.Annotations;
 
-namespace Joinrpg.Common.Helpers
+namespace Joinrpg.Common.DataTypes
 {
     [ComplexType]
     [PublicAPI]
@@ -13,12 +13,13 @@ namespace Joinrpg.Common.Helpers
             Contents = contents;
         }
 
-        public MarkdownString() : this(null)
+        public MarkdownString() : this(contents: null)
         {
         }
 
+        //TODO: Can I make this private/protected set
         [CanBeNull]
-        public string Contents { get; private set; }
+        public string Contents { get;  set; }
 
         public override string ToString() => $"Markdown({Contents})";
 
@@ -30,9 +31,14 @@ namespace Joinrpg.Common.Helpers
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
+            {
                 return false;
+            }
+
             if (ReferenceEquals(this, obj))
+            {
                 return true;
+            }
             return Equals(obj as MarkdownString);
         }
 
