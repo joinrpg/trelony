@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Joinrpg.Trelony.DataModel\Joinrpg.Trelony.DataModel.csproj" />
+    <ProjectReference Include="..\Joinrpg.Trelony.Repositories.Interfaces\Joinrpg.Trelony.Repositories.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
