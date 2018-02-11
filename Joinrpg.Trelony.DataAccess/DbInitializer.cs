@@ -53,76 +53,83 @@ namespace Joinrpg.Trelony.DataAccess
 
             if (!context.Games.Any())
             {
-                var games = new[]
+                var moscowId = context.SubRegions.Single(sr => sr.SubRegionName == "Московская область")
+                    .SubRegionId;
+                var spbId = context.SubRegions.Single(sr => sr.SubRegionName == "Ленинградская область");
+                for (var month = 1; month <= 12; month++)
+                for (var day = 1; day < 10; day++)
                 {
-                    new Game()
+                    var games = new[]
                     {
-                        Dates = new HashSet<GameDate>()
+                        new Game()
                         {
-                            new GameDate()
+                            Dates = new HashSet<GameDate>()
                             {
-                                Actual = true,
-                                GameDurationDays = 4,
-                                GameStartDate = new DateTime(year: 2018, month: 07, day: 25)
-                            }
+                                new GameDate()
+                                {
+                                    Actual = true,
+                                    GameDurationDays = 4,
+                                    GameStartDate = new DateTime(year: 2018, month: month, day: day)
+                                }
+                            },
+                            Email = "klepa@example.com",
+                            GameName = "Железный трон",
+                            SubRegionId = moscowId,
+                            GameStatus = GameStatus.ProbablyHappen,
+                            PlayersCount = 1500,
+                            VkontakteLink = "vesteros2018",
+                            Organizers = "МГ «Наррентурм»",
+                            GameType = GameType.Forest,
                         },
-                        Email = "klepa@example.com",
-                        GameName = "Железный трон",
-                        SubRegionId = context.SubRegions.Single(sr => sr.SubRegionName == "Московская область")
-                            .SubRegionId,
-                        GameStatus = GameStatus.ProbablyHappen,
-                        PlayersCount = 1500,
-                        VkontakteLink = "vesteros2018",
-                        Organizers = "МГ «Наррентурм»",
-                        GameType = GameType.Forest,
-                    },
-                    new Game()
-                    {
-                        Dates = new HashSet<GameDate>()
+                        new Game()
                         {
-                            new GameDate()
+                            Dates = new HashSet<GameDate>()
                             {
-                                Actual = true,
-                                GameDurationDays = 4,
-                                GameStartDate = new DateTime(year: 2018, month: 08, day: 15)
-                            }
+                                new GameDate()
+                                {
+                                    Actual = true,
+                                    GameDurationDays = 4,
+                                    GameStartDate = new DateTime(year: 2018, month: month, day: day * 2)
+                                }
+                            },
+                            Email = "freexee@example.com",
+                            GameName = "Магеллан: Время для звезд",
+                            SubRegionId = spbId
+                                .SubRegionId,
+                            GameStatus = GameStatus.ProbablyHappen,
+                            PlayersCount = 300,
+                            VkontakteLink = "magellan2018",
+                            Organizers = "МГ «Питерский формат»",
+                            GameUrl = "http://magellan2018.ru",
+                            GameType = GameType.OnRentedPlace,
                         },
-                        Email = "freexee@example.com",
-                        GameName = "Магеллан: Время для звезд",
-                        SubRegionId = context.SubRegions.Single(sr => sr.SubRegionName == "Ленинградская область")
-                            .SubRegionId,
-                        GameStatus = GameStatus.ProbablyHappen,
-                        PlayersCount = 300,
-                        VkontakteLink = "magellan2018",
-                        Organizers = "МГ «Питерский формат»",
-                        GameUrl = "http://magellan2018.ru",
-                        GameType = GameType.OnRentedPlace,
-                    },
-                    new Game()
-                    {
-                        Dates = new HashSet<GameDate>()
+                        new Game()
                         {
-                            new GameDate()
+                            Dates = new HashSet<GameDate>()
                             {
-                                Actual = true,
-                                GameDurationDays = 4,
-                                GameStartDate = new DateTime(year: 2016, month: 07, day: 6)
-                            }
+                                new GameDate()
+                                {
+                                    Actual = true,
+                                    GameDurationDays = 4,
+                                    GameStartDate = new DateTime(year: 2016, month: month, day: day)
+                                }
+                            },
+                            Email = "leo@example.com",
+                            GameName = "Стимпанк: Век разума",
+                            SubRegionId = spbId
+                                .SubRegionId,
+                            GameStatus = GameStatus.DefinitelyPassed,
+                            PlayersCount = 400,
+                            VkontakteLink = "steampunk2016",
+                            Organizers = "МГ «Питерский формат»",
+                            GameUrl = "http://steam2016.ru",
+                            GameType = GameType.Forest,
                         },
-                        Email = "leo@example.com",
-                        GameName = "Стимпанк: Век разума",
-                        SubRegionId = context.SubRegions.Single(sr => sr.SubRegionName == "Ленинградская область")
-                            .SubRegionId,
-                        GameStatus = GameStatus.DefinitelyPassed,
-                        PlayersCount = 400,
-                        VkontakteLink = "steampunk2016",
-                        Organizers = "МГ «Питерский формат»",
-                        GameUrl = "http://steam2016.ru",
-                        GameType = GameType.Forest,
-                    },
-                };
+                    };
 
-                context.Games.AddRange(games);
+                    context.Games.AddRange(games);
+                }
+
                 context.SaveChanges();
             }
         }
