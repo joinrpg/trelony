@@ -40,7 +40,9 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                     Name = row.Game.GameName,
                     PolygonName = row.Game.Polygon.PolygonName,
                     StartDate = row.GameStartDate,
+
                     SubRegionShortName = row.Game.SubRegion.SubRegionName,
+                    MacroRegionId = row.Game.SubRegion.MacroRegionId,
 
                     VkontakteLink = row.Game.VkontakteLink,
                     FacebookLink = row.Game.FacebookLink,

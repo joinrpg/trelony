@@ -15,6 +15,8 @@ namespace Joinrpg.Trelony.Repositories.Interfaces
         public int GameDurationDays { get; set; }
 
         public string SubRegionShortName { get; set; }
+        public int MacroRegionId { get; set; }
+
         public GameType GameType { get; set; }
 
         public string PolygonName { get; set; }
