@@ -35,12 +35,20 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                     Status = row.Game.GameStatus,
                     PlayersCount = row.Game.PlayersCount,
                     Organizers = row.Game.Organizers,
-                    VkontakteLink = row.Game.VkontakteLink,
+                    
                     GameId = row.GameId,
                     Name = row.Game.GameName,
                     PolygonName = row.Game.Polygon.PolygonName,
                     StartDate = row.GameStartDate,
                     SubRegionShortName = row.Game.SubRegion.SubRegionName,
+
+                    VkontakteLink = row.Game.VkontakteLink,
+                    FacebookLink = row.Game.FacebookLink,
+                    TelegramLink = row.Game.TelegramLink,
+                    LivejournalLink = row.Game.LivejournalLink,
+                    
+                    Email = row.Game.Email,
+                    
                 })
                 .ToListAsync();
         }

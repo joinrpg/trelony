@@ -22,6 +22,9 @@ namespace Joinrpg.Trelony.Repositories.Interfaces
         public int? PlayersCount { get; set; }
 
         public string Organizers { get; set; }
-
+        public string Email { get; set; }
+        public string FacebookLink { get; set; }
+        public string TelegramLink { get; set; }
+        public string LivejournalLink { get; set; }
     }
 }
