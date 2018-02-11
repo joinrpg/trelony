@@ -27,6 +27,7 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                 .AsNoTracking()
                 .SelectMany(g => g.Dates)
                 .Where(GetYearPredicate(year))
+                .Where(GetRegionPredicate(gameRegionId))
                 .Select(row => new CalendarRow()
                 {
                     GameType = row.Game.GameType,
@@ -42,6 +43,16 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                     SubRegionShortName = row.Game.SubRegion.SubRegionName,
                 })
                 .ToListAsync();
+        }
+
+        private Expression<Func<GameDate, bool>> GetRegionPredicate(int? gameRegionId)
+        {
+            if (gameRegionId == null)
+            {
+                return game => true;
+            }
+
+            return game => game.Game.SubRegion.MacroRegionId == gameRegionId;
         }
 
         private static Expression<Func<GameDate, bool>> GetYearPredicate(int year)
