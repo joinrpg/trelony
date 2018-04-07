@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.Web", "Join
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.DataAccess", "Joinrpg.Trelony.DataAccess\Joinrpg.Trelony.DataAccess.csproj", "{D2692575-B9C9-47FE-91E7-A7BDE019492B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.DataModel", "Joinrpg.Trelony.DataModel\Joinrpg.Trelony.DataModel.csproj", "{61B75D6C-EDB4-4A37-A0AA-656E6D03D5E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.DataModel", "Joinrpg.Trelony.DataModel\Joinrpg.Trelony.DataModel.csproj", "{61B75D6C-EDB4-4A37-A0AA-656E6D03D5E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Common.Helpers", "Joinrpg.Common.Helpers\Joinrpg.Common.Helpers.csproj", "{48888706-D5D0-437A-9324-9CEC67E8C7D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Common.Helpers", "Joinrpg.Common.Helpers\Joinrpg.Common.Helpers.csproj", "{48888706-D5D0-437A-9324-9CEC67E8C7D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12AEA2C7-E8DD-4D64-A4B4-21152308BE4D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
