@@ -6,7 +6,7 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
 {
     public class PolygonJson
     {
-        [JsonProperty("polygon_id")] public string PolygonId { get; set; }
+        [JsonProperty("polygon_id")] public int PolygonId { get; set; }
 
         [JsonProperty("polygon_name")] public string PolygonName { get; set; }
 

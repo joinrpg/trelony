@@ -7,7 +7,7 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
     public class GameJson
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

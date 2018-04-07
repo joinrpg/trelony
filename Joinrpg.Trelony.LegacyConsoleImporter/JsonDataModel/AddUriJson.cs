@@ -4,7 +4,7 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
 {
     public partial class AddUriJson
     {
-        [JsonProperty("add_uri_id")] public string AddUriId { get; set; }
+        [JsonProperty("add_uri_id")] public int AddUriId { get; set; }
 
         [JsonProperty("uri")] public string Uri { get; set; }
 

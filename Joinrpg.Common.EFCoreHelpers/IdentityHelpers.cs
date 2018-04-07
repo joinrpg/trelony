@@ -12,10 +12,12 @@ namespace Joinrpg.Common.EFCoreHelpers
         private static Task SetIdentityInsert<T>(DbContext context, bool enable)
         {
             var mapping = context.Model.FindEntityType(typeof(T)).Relational();
+            var schema = mapping.Schema == null ? "" : (mapping.Schema + ".");
             var value = enable ? "ON" : "OFF";
 
-            return context.Database.ExecuteSqlCommandAsync(
-                $"SET IDENTITY_INSERT {mapping.Schema}.{mapping.TableName} {value}");
+            var rawSqlString = $"SET IDENTITY_INSERT {schema}{mapping.TableName} {value}";
+
+            return context.Database.ExecuteSqlCommandAsync(rawSqlString);
         }
     }
 }
