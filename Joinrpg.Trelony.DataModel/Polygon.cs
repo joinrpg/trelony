@@ -11,6 +11,7 @@ namespace Joinrpg.Trelony.DataModel
 
         public int SubRegionId { get; set; }
         [Required, NotNull]
-        public SubRegion Region { get; set; }
+        public SubRegion SubRegion { get; set; }
+        public bool Active { get; set; }
     }
 }

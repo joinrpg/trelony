@@ -12,9 +12,10 @@ using System;
 namespace Joinrpg.Trelony.DataAccess.Migrations
 {
     [DbContext(typeof(TrelonyContext))]
-    partial class TrelonyContextModelSnapshot : ModelSnapshot
+    [Migration("20180407145923_ActiveFlags")]
+    partial class ActiveFlags
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
