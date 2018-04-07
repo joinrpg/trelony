@@ -1,8 +1,0 @@
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\obj\Debug\netstandard2.0\Joinrpg.Common.Helpers.csproj.CoreCompileInputs.cache
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\obj\Debug\netstandard2.0\Joinrpg.Common.Helpers.AssemblyInfoInputs.cache
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\obj\Debug\netstandard2.0\Joinrpg.Common.Helpers.AssemblyInfo.cs
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\bin\Debug\netstandard2.0\Joinrpg.Common.Helpers.deps.json
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\bin\Debug\netstandard2.0\Joinrpg.Common.Helpers.dll
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
-C:\Users\leonid.tsarev\Source\Joinrpg.Trelony\Joinrpg.Common.Helpers\obj\Debug\netstandard2.0\Joinrpg.Common.Helpers.csprojResolveAssemblyReference.cache
