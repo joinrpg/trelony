@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Joinrpg.Common.Helpers;
 
 namespace Joinrpg.Trelony.DataModel
@@ -137,6 +136,6 @@ namespace Joinrpg.Trelony.DataModel
         Unknown = 2,
         Postponed = 3,
         DateUnknown = 4,
-        Cancelled = 5
+        Cancelled = 5,
     }
 }
