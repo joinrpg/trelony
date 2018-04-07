@@ -90,6 +90,7 @@ namespace Joinrpg.Trelony.Web
             InitializeDatabase(app);
         }
 
+        [UsedImplicitly]
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new TrelonyModule());
