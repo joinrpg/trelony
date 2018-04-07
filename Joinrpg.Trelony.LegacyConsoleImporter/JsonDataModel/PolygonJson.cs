@@ -10,7 +10,7 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
 
         [JsonProperty("polygon_name")] public string PolygonName { get; set; }
 
-        [JsonProperty("sub_region_id")] public string SubRegionId { get; set; }
+        [JsonProperty("sub_region_id")] public int SubRegionId { get; set; }
 
         [JsonProperty("meta_polygon")]
         [JsonConverter(typeof(BoolConverter))]

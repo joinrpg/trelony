@@ -29,8 +29,33 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter
             Logger.Information($"Start importing {nameof(MacroRegion)}");
             await ImportEntity(RegionMapper, Parser.Regions.Values);
             await ImportEntity(SubRegionMapper, Parser.SubRegions.Values);
+            await ImportEntity(PolygonMapper, Parser.Polygons.Values);
 
             return true;
+        }
+
+        private async Task<Polygon> PolygonMapper(PolygonJson arg)
+        {
+            if (arg.MetaPolygon)
+            {
+                return null; 
+            }
+
+            var subRegion = await Context.SubRegions.FindAsync(arg.SubRegionId);
+
+            if (subRegion == null)
+            {
+                Logger.Warning("Polygon {polygonName} ({polygonId}) has subregion {subregion}, which is not exists",
+                    arg.PolygonName, arg.PolygonId, arg.SubRegionId);
+                return null;
+            }
+            return new Polygon()
+            {
+                Active = !arg.DeletedFlag,
+                PolygonId = arg.PolygonId,
+                SubRegion = subRegion,
+                PolygonName = arg.PolygonName,
+            };
         }
 
         private static MacroRegion RegionMapper(RegionJson regionJson)
