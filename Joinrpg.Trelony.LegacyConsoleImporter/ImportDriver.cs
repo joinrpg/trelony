@@ -7,6 +7,7 @@ using Joinrpg.Trelony.DataAccess;
 using Joinrpg.Trelony.DataModel;
 using Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 using Serilog;
 
 namespace Joinrpg.Trelony.LegacyConsoleImporter
@@ -31,6 +32,8 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter
             await ImportEntity(SubRegionMapper, Parser.SubRegions.Values);
             await ImportEntity(PolygonMapper, Parser.Polygons.Values);
             await ImportEntity(GamesMapper, Parser.Games.Values);
+//            await ImportEntity(GameDateMapper, Parser.GameDates.Values);
+//            await ImportEntity(AssocMapper, Parser.AllrpgAssocs.Values);
 
             return true;
         }
@@ -79,13 +82,69 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter
                 GameId = arg.Id,
                 GameName = arg.Name,
 
-                GameStatus = GameStatus.UnknownStatus, //TODO
-                GameType = GameType.Forest, //TODO
+                GameStatus = ConvertStatus(arg.Status),
+                GameType = ConvertType(arg.Type),
 
                 Organizers = arg.Mg,
                 PlayersCount = arg.PlayersCount,
 
             };
+        }
+
+        private GameType ConvertType(GameJsonType argType)
+        {
+            switch (argType)
+            {
+                case GameJsonType.Forest:
+                    return GameType.Forest;
+                case GameJsonType.City:
+                    return GameType.City;
+                case GameJsonType.OnRentedPlace:
+                    return GameType.OnRentedPlace;
+                case GameJsonType.Room:
+                    return GameType.Room;
+                case GameJsonType.Convention:
+                    return GameType.Convention;
+                case GameJsonType.Ball:
+                    return GameType.Ball;
+                case GameJsonType.Bugurt:
+                    return GameType.Bugurt;
+                case GameJsonType.CityAndForest:
+                    return GameType.CityAndForest;
+                case GameJsonType.CityAndRentedPlace:
+                    return GameType.CityAndRentedPlace;
+                case GameJsonType.Tournament:
+                    return GameType.Tournament;
+                case GameJsonType.Underground:
+                    return GameType.Underground;
+                case GameJsonType.AirsoftEvent:
+                    return GameType.AirsoftEvent;
+                case GameJsonType.Festival:
+                    return GameType.Festival;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(argType), argType, null);
+            }
+        }
+
+        private GameStatus ConvertStatus(Status argStatus)
+        {
+            switch (argStatus)
+            {
+                case Status.Ok:
+                    return GameStatus.ProbablyHappen;
+                case Status.Finish:
+                    return GameStatus.DefinitelyPassed;
+                case Status.Unknown:
+                    return GameStatus.UnknownStatus;
+                case Status.Postponed:
+                    return GameStatus.PostponedWithoutDate;
+                case Status.Date:
+                    return GameStatus.DateUnknown;
+                case Status.Cancelled:
+                    return GameStatus.DefinitelyCancelled;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(argStatus), argStatus, null);
+            }
         }
 
         private async Task<Polygon> PolygonMapper(PolygonJson arg)
