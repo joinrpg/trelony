@@ -1,7 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Joinrpg.Common.EFCoreHelpers;
+using Joinrpg.Common.Helpers;
 using Joinrpg.Trelony.DataAccess;
 using Joinrpg.Trelony.DataModel;
+using Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -23,55 +27,67 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter
         public async Task<bool> Import()
         {
             Logger.Information($"Start importing {nameof(MacroRegion)}");
-            foreach (var regionJson in Parser.Regions.Values)
-            {
-                if (regionJson.RegionCode == "")
-                {
-                    continue; //skip meta regions
-                }
-                var region = new MacroRegion
-                {
-                    MacroRegionId = regionJson.RegionId,
-                    MacroRegionName = regionJson.RegionName
-                };
-
-                await Context.MacroRegions.AddAsync(region);
-            }
-
-            await SaveWithIdentyInsert<MacroRegion>();
-
-            foreach(var regionJson in Parser.SubRegions.Values)
-            {
-                var region = new SubRegion()
-                {
-                    SubRegionId = regionJson.SubRegionId,
-                    MacroRegion = await Context.MacroRegions.FindAsync(regionJson.RegionId),
-                    SubRegionName = regionJson.SubRegionName,
-                };
-
-                await Context.SubRegions.AddAsync(region);
-            }
-
-            await SaveWithIdentyInsert<SubRegion>();
+            await ImportEntity(RegionMapper, Parser.Regions.Values);
+            await ImportEntity(SubRegionMapper, Parser.SubRegions.Values);
 
             return true;
         }
 
-        private async Task SaveWithIdentyInsert<T>()
+        private static MacroRegion RegionMapper(RegionJson regionJson)
         {
-            Logger.Information($"Before save of {typeof(T).Name}");
+            if (regionJson.RegionCode == "")
+            {
+                return null; //skip meta regions
+            }
+
+            return new MacroRegion
+            {
+                MacroRegionId = regionJson.RegionId,
+                MacroRegionName = regionJson.RegionName
+            };
+        }
+
+        private async Task<SubRegion> SubRegionMapper(SubRegionJson regionJson)
+        {
+            return new SubRegion()
+            {
+                SubRegionId = regionJson.SubRegionId,
+                MacroRegion = await Context.MacroRegions.FindAsync(regionJson.RegionId),
+                SubRegionName = regionJson.SubRegionName,
+            };
+
+        }
+
+        private async Task ImportEntity<TOld, TNew>(Func<TOld, Task<TNew>> mapperFunc, IEnumerable<TOld> oldValues) where TNew : class
+        {
+            foreach (var regionJson in oldValues)
+            {
+                var region = await mapperFunc(regionJson);
+
+                if (region != null)
+                {
+                    await Context.Set<TNew>().AddAsync(region);
+                }
+            }
+
+            Logger.Information($"Before save of {typeof(TNew).Name}");
             await Context.Database.OpenConnectionAsync();
             try
             {
-                await Context.EnableIdentityInsert<T>();
+                await Context.EnableIdentityInsert<TNew>();
                 await Context.SaveChangesAsync();
-                await Context.DisableIdentityInsert<T>();
+                await Context.DisableIdentityInsert<TNew>();
             }
             finally
             {
                 Context.Database.CloseConnection();
             }
-            Logger.Information($"After save of {typeof(T).Name}");
+            Logger.Information($"After save of {typeof(TNew).Name}");
+        }
+
+        private Task ImportEntity<TOld, TNew>(Func<TOld, TNew> mapperFunc, IEnumerable<TOld> oldValues) where TNew : class
+        {
+            return ImportEntity(TaskHelpers.SyncTask(mapperFunc), oldValues);
         }
     }
 }
