@@ -11,6 +11,7 @@
         Bugurt,
         CityAndForest,
         CityAndRentedPlace,
+        Tournament,
         Underground,
         AirsoftEvent,
         Festival,
