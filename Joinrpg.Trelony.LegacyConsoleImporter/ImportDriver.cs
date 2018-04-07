@@ -30,8 +30,62 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter
             await ImportEntity(RegionMapper, Parser.Regions.Values);
             await ImportEntity(SubRegionMapper, Parser.SubRegions.Values);
             await ImportEntity(PolygonMapper, Parser.Polygons.Values);
+            await ImportEntity(GamesMapper, Parser.Games.Values);
 
             return true;
+        }
+
+        private async Task<Game> GamesMapper(GameJson arg) 
+        {
+            var subRegion = await Context.SubRegions.FindAsync(arg.SubRegionId);
+
+            if (subRegion == null)
+            {
+                Logger.Warning("Game {name} ({id}) has subregion {subregion}, which is not exists",
+                    arg.Name, arg.Id, arg.SubRegionId);
+                return null;
+            }
+
+            Polygon polygon;
+            if (arg.Polygon == 29 || arg.Polygon == 0)
+            {
+                polygon = null;
+            }
+            else
+            {
+                polygon = await Context.Polygons.FindAsync(arg.Polygon);
+
+                if (polygon == null)
+                {
+                    Logger.Warning("Game {name} ({id}) has polygon {polygon}, which is not exists",
+                        arg.Name, arg.Id, arg.Polygon);
+                    return null;
+                }
+            }
+
+            return new Game()
+            {
+                Polygon = polygon,
+                SubRegion = subRegion,
+                Active = !arg.DeletedFlag,
+
+                Email = arg.Email,
+                GameUrl = arg.Uri,
+                FacebookLink = arg.FbComm,
+                LivejournalLink = arg.LjComm,
+                VkontakteLink = arg.VkClub,
+                TelegramLink = null,
+
+                GameId = arg.Id,
+                GameName = arg.Name,
+
+                GameStatus = GameStatus.UnknownStatus, //TODO
+                GameType = GameType.Forest, //TODO
+
+                Organizers = arg.Mg,
+                PlayersCount = arg.PlayersCount,
+
+            };
         }
 
         private async Task<Polygon> PolygonMapper(PolygonJson arg)

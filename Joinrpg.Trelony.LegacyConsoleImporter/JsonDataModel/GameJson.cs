@@ -20,7 +20,7 @@ namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
         public GameJsonType Type { get; set; }
 
         [JsonProperty("polygon")]
-        public string Polygon { get; set; }
+        public int? Polygon { get; set; }
 
         [JsonProperty("mg")]
         public string Mg { get; set; }
