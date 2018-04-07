@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Common.Helpers", "J
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Common.DataTypes", "Joinrpg.Common.DataTypes\Joinrpg.Common.DataTypes.csproj", "{E657170B-FC8C-4A38-9166-5B8D9093E0CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.Repositories.Interfaces", "Joinrpg.Trelony.Repositories.Interfaces\Joinrpg.Trelony.Repositories.Interfaces.csproj", "{1027ACBB-1779-4CE0-BEF9-D08C409C8CD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.Repositories.Interfaces", "Joinrpg.Trelony.Repositories.Interfaces\Joinrpg.Trelony.Repositories.Interfaces.csproj", "{1027ACBB-1779-4CE0-BEF9-D08C409C8CD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.DIModule", "Joinrpg.Trelony.DIModule\Joinrpg.Trelony.DIModule.csproj", "{33966A9A-3E2D-404F-8BCC-2C8B244F4ED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.DIModule", "Joinrpg.Trelony.DIModule\Joinrpg.Trelony.DIModule.csproj", "{33966A9A-3E2D-404F-8BCC-2C8B244F4ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.LegacyConsoleImporter", "Joinrpg.Trelony.LegacyConsoleImporter\Joinrpg.Trelony.LegacyConsoleImporter.csproj", "{DDF438A9-92EC-466F-B299-AFD6E299A56A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{33966A9A-3E2D-404F-8BCC-2C8B244F4ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33966A9A-3E2D-404F-8BCC-2C8B244F4ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33966A9A-3E2D-404F-8BCC-2C8B244F4ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
