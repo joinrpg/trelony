@@ -1,8 +1,8 @@
-using Autofac.Extensions.DependencyInjection;
+﻿using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Joinrpg.Trelony.Web
+namespace Joinrpg.Trelony.WebBackend
 {
     public static class Program
     {
@@ -11,7 +11,7 @@ namespace Joinrpg.Trelony.Web
             BuildWebHost(args).Run();
         }
 
-        private static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .ConfigureServices(services => services.AddAutofac())

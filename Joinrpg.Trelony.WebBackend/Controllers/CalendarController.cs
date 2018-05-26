@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Joinrpg.Trelony.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Joinrpg.Trelony.Web.Controllers
+namespace Joinrpg.Trelony.WebBackend.Controllers
 {
     [Produces("application/json")]
     [Route("api/Calendar")]
