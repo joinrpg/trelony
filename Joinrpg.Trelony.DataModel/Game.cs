@@ -32,5 +32,7 @@ namespace Joinrpg.Trelony.DataModel
         public string TelegramLink { get; set; }
 
         public GameStatus GameStatus { get; set; }
+
+        public bool Active { get; set; }
     }
 }

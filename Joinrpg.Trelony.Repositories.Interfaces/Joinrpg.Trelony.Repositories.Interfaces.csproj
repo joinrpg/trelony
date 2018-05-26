@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AsyncFixer" Version="1.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Joinrpg.Trelony.DataModel\Joinrpg.Trelony.DataModel.csproj" />
   </ItemGroup>
 

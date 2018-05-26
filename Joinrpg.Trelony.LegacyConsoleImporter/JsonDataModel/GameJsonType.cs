@@ -1,11 +1,6 @@
-﻿namespace Joinrpg.Trelony.DataModel
+﻿namespace Joinrpg.Trelony.LegacyConsoleImporter.JsonDataModel
 {
-    public enum GameType
-    {
-        Forest,
-        City,
-        OnRentedPlace,
-        Room,
+    public enum GameJsonType { Forest, City, OnRentedPlace, Room,
         Convention,
         Ball,
         Bugurt,
@@ -14,6 +9,6 @@
         Tournament,
         Underground,
         AirsoftEvent,
-        Festival,
-    }
+        Festival
+    };
 }

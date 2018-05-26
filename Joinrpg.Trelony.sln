@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.DIModule", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.WebBackend", "Joinrpg.Trelony.WebBackend\Joinrpg.Trelony.WebBackend.csproj", "{FF2AA536-B79B-45F4-B56E-78AF68671B48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.LegacyConsoleImporter", "Joinrpg.Trelony.LegacyConsoleImporter\Joinrpg.Trelony.LegacyConsoleImporter.csproj", "{DDF438A9-92EC-466F-B299-AFD6E299A56A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Common.EFCoreHelpers", "Joinrpg.Common.EFCoreHelpers\Joinrpg.Common.EFCoreHelpers.csproj", "{6F48A5D8-418C-43F0-A878-7E84B170709C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{FF2AA536-B79B-45F4-B56E-78AF68671B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF2AA536-B79B-45F4-B56E-78AF68671B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF2AA536-B79B-45F4-B56E-78AF68671B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF438A9-92EC-466F-B299-AFD6E299A56A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F48A5D8-418C-43F0-A878-7E84B170709C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F48A5D8-418C-43F0-A878-7E84B170709C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F48A5D8-418C-43F0-A878-7E84B170709C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F48A5D8-418C-43F0-A878-7E84B170709C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

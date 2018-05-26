@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Joinrpg.Trelony.LegacyConsoleImporter": {
+      "commandName": "Project",
+      "commandLineArgs": "--file=C:\\Users\\leonid.tsarev\\Downloads\\db_kogda_1.json"
+    }
+  }
+}
