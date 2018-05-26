@@ -1,0 +1,20 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+before_build:
+- pwsh: dotnet restore
+build:
+  publish_wap_xcopy: true
+  verbosity: minimal
+after_build:
+- cmd: dotnet publish Joinrpg.Trelony.WebBackend --output %appveyor_build_folder%\dist
+artifacts:
+- path: dist
+  name: dist.web

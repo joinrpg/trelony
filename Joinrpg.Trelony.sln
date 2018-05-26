@@ -17,9 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.DIModule", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.WebBackend", "Joinrpg.Trelony.WebBackend\Joinrpg.Trelony.WebBackend.csproj", "{FF2AA536-B79B-45F4-B56E-78AF68671B48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Trelony.LegacyConsoleImporter", "Joinrpg.Trelony.LegacyConsoleImporter\Joinrpg.Trelony.LegacyConsoleImporter.csproj", "{DDF438A9-92EC-466F-B299-AFD6E299A56A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Trelony.LegacyConsoleImporter", "Joinrpg.Trelony.LegacyConsoleImporter\Joinrpg.Trelony.LegacyConsoleImporter.csproj", "{DDF438A9-92EC-466F-B299-AFD6E299A56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joinrpg.Common.EFCoreHelpers", "Joinrpg.Common.EFCoreHelpers\Joinrpg.Common.EFCoreHelpers.csproj", "{6F48A5D8-418C-43F0-A878-7E84B170709C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joinrpg.Common.EFCoreHelpers", "Joinrpg.Common.EFCoreHelpers\Joinrpg.Common.EFCoreHelpers.csproj", "{6F48A5D8-418C-43F0-A878-7E84B170709C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0BF16FA7-DCD1-49FA-B4D5-CBD0EB1877D9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
