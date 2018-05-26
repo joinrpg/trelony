@@ -27,8 +27,7 @@ namespace Joinrpg.Trelony.WebBackend
             services.AddMvc();
 
             services.AddDbContext<TrelonyContext>(options =>
-                options.UseSqlServer(
-                    "Server=(localdb)\\mssqllocaldb;Database=Trelony;Trusted_Connection=True;"));
+                options.UseSqlServer(Configuration.GetConnectionString("TrelonyDatabase")));
 
             services.AddSwaggerGen(c =>
             {
