@@ -14,6 +14,8 @@ namespace Joinrpg.Trelony.WebBackend
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseSetting("detailedErrors", "true")
+                .CaptureStartupErrors(captureStartupErrors: true)
                 .ConfigureServices(services => services.AddAutofac())
                 .Build();
     }
