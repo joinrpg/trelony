@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Joinrpg.Trelony.DataAccess\Joinrpg.Trelony.DataAccess.csproj" />
     <ProjectReference Include="..\Joinrpg.Trelony.DIModule\Joinrpg.Trelony.DIModule.csproj" />
+    <ProjectReference Include="..\Joinrpg.Trelony.Identity\Joinrpg.Trelony.Identity.csproj" />
   </ItemGroup>
 
 </Project>

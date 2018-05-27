@@ -13,6 +13,8 @@ namespace Joinrpg.Trelony.DataAccess
 
         public DbSet<Polygon> Polygons { get; private set; }
 
+        public DbSet<User> Users { get; private set; }
+
         public TrelonyContext(DbContextOptions<TrelonyContext> options) : base (options)
         {
 

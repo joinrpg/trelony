@@ -2,12 +2,15 @@
 using JetBrains.Annotations;
 using Joinrpg.Trelony.DataAccess;
 using Joinrpg.Trelony.DIModule;
+using Joinrpg.Trelony.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using IdentityUser = Joinrpg.Trelony.Identity.IdentityUser;
 
 namespace Joinrpg.Trelony.WebBackend
 {
@@ -33,6 +36,14 @@ namespace Joinrpg.Trelony.WebBackend
             {
                 c.SwaggerDoc("v1", new Info { Title = "Kogda-Igra API", Version = "v1" });
             });
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders();
+
+            // Identity Services
+            services.AddTransient<IUserStore<IdentityUser>, TrelonyUserStore>();
+            services.AddTransient<IUserPasswordStore<IdentityUser>, TrelonyUserStore>();
+            services.AddTransient<IUserEmailStore<IdentityUser>, TrelonyUserStore>();
         }
 
         private void InitializeDatabase(IApplicationBuilder app)
@@ -62,6 +73,8 @@ namespace Joinrpg.Trelony.WebBackend
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+
 
             app.UseStaticFiles();
 
