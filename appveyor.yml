@@ -18,3 +18,8 @@ after_build:
 artifacts:
 - path: dist
   name: dist.web
+deploy:
+- provider: Environment
+  name: Trelony-Development
+  on:
+    branch: master
