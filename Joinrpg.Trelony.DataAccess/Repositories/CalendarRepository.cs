@@ -35,7 +35,7 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                     Status = row.Game.GameStatus,
                     PlayersCount = row.Game.PlayersCount,
                     Organizers = row.Game.Organizers,
-                    
+
                     GameId = row.GameId,
                     Name = row.Game.GameName,
                     PolygonName = row.Game.Polygon.PolygonName,
@@ -48,11 +48,31 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
                     FacebookLink = row.Game.FacebookLink,
                     TelegramLink = row.Game.TelegramLink,
                     LivejournalLink = row.Game.LivejournalLink,
-                    
+
                     Email = row.Game.Email,
-                    
                 })
                 .ToListAsync();
+        }
+
+        /// <inheritdoc />
+        public async Task<IReadOnlyList<int>> GetYears()
+        {
+            return await Context.Games
+                .SelectMany(g => g.Dates)
+                .Select(row => row.GameStartDate.Year)
+                .Distinct()
+                .ToListAsync();
+        }
+
+        /// <inheritdoc />
+        public async Task<IReadOnlyList<MacroRegionRow>> GetMacroRegionsAsync()
+        {
+            return await Context.MacroRegions.Select(macroRegion => new MacroRegionRow()
+            {
+                MacroRegionId = macroRegion.MacroRegionId,
+                Name = macroRegion.MacroRegionName,
+                UrlPart = macroRegion.MacroRegionId.ToString()
+            }).ToListAsync();
         }
 
         private Expression<Func<GameDate, bool>> GetRegionPredicate(int? gameRegionId)
@@ -67,7 +87,8 @@ namespace Joinrpg.Trelony.DataAccess.Repositories
 
         private static Expression<Func<GameDate, bool>> GetYearPredicate(int year)
         {
-            return row => row.GameStartDate.Year == year || row.GameStartDate.AddDays(row.GameDurationDays).Year  == year;
+            return row =>
+                row.GameStartDate.Year == year || row.GameStartDate.AddDays(row.GameDurationDays).Year == year;
         }
     }
 }

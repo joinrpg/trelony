@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Joinrpg.Trelony.WebBackend.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Calendar")]
+    [Route("api/[controller]/[action]")]
     public class CalendarController : Controller
     {
         private ICalendarRepository CalendarRepository { get; }
@@ -21,5 +21,11 @@ namespace Joinrpg.Trelony.WebBackend.Controllers
         {
             return CalendarRepository.GetCalendar(year, macroRegionId);
         }
+
+        [HttpGet]
+        public Task<IReadOnlyList<int>> GetYears() => CalendarRepository.GetYears();
+
+        [HttpGet]
+        public Task<IReadOnlyList<MacroRegionRow>> GetMacroRegions() => CalendarRepository.GetMacroRegionsAsync();
     }
 }
